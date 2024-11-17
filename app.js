@@ -1,18 +1,37 @@
 document.getElementById("search-btn").addEventListener("click", function () {
-    fetch("superheroes.php")
+    const searchInput = document.getElementById("search-input").value.trim();
+    const resultContainer = document.getElementById("result");
+  
+
+    resultContainer.innerHTML = "";
+    resultContainer.style.display = "none";
+  
+    // Fetch superheroes
+    const url = `superheroes.php?query=${encodeURIComponent(searchInput)}`;
+    fetch(url)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        return response.text(); // Retrieve the HTML content
+        return response.text(); 
       })
       .then((data) => {
-        // Display the list in an alert box
-        alert(data);
+        resultContainer.style.display = "block";
+  
+        if (data.trim() === "Superhero not found") {
+          resultContainer.classList.add("error");
+          resultContainer.innerHTML = `<p>${data}</p>`;
+        } else {
+          resultContainer.classList.remove("error");
+          resultContainer.innerHTML = data;
+        }
       })
       .catch((error) => {
         console.error("Error fetching superhero data:", error);
-        alert("Failed to fetch superhero data. Please try again later.");
+        resultContainer.style.display = "block";
+        resultContainer.classList.add("error");
+        resultContainer.innerHTML =
+          "<p>Something went wrong. Please try again later.</p>";
       });
   });
   

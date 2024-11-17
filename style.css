@@ -1,32 +1,62 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #d3d3d3;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0; 
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
   }
   
   .container {
-    text-align: center;
+    background-color: #ffffff; 
     padding: 20px;
-    background: #f5f5f5;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
   }
   
   h1 {
+    margin-bottom: 15px;
     font-size: 24px;
+    color: #4d4d4d; 
+  }
+  
+  p {
+    margin-bottom: 20px;
+    color: #666; 
+  }
+  
+  form {
     margin-bottom: 20px;
   }
   
+  input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc; 
+    border-radius: 4px;
+    background-color: #f9f9f9; 
+    color: #333;
+  }
+  
+  input[type="text"]::placeholder {
+    color: #999; 
+  }
+  
   button {
-    font-size: 16px;
     padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
+    background-color: #6c757d; 
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -34,6 +64,41 @@ body {
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #5a6268; /* Slightly darker grey on hover */
+  }
+  
+  .result-container {
+    text-align: left;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9; 
+    border: 1px solid #cccccc; 
+    border-radius: 4px;
+    color: #333;
+  }
+  
+  .result-container h3 {
+    color: #000080; 
+  }
+  
+  .result-container h4 {
+    color: #666; 
+  }
+  
+  .result-container p {
+    color: #333; 
+  }
+  
+  .result-container.error {
+    color: #cc0000; 
+  }
+  
+  ul {
+    padding-left: 20px;
+    color: #333; 
+  }
+  
+  li {
+    margin-bottom: 5px;
   }
   
